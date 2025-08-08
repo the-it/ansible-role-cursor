@@ -1,0 +1,26 @@
+---
+galaxy_info:
+  author: Erik Sommer forked from John Freeman
+  description: Role for settings in Cursor
+  license: MIT
+  min_ansible_version: '2.12'
+  platforms:
+    - name: EL
+      versions:
+        - '8'
+    - name: Ubuntu
+      versions:
+        - focal
+        - jammy
+    - name: Fedora
+      versions:
+        - '35'
+    - name: opensuse
+      versions:
+        - '15.3'
+  galaxy_tags:
+    - code
+    - editor
+    - ide
+    - development
+dependencies: []
