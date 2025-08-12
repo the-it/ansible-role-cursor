@@ -4,7 +4,7 @@
   become: true
   become_user: '{{ user.username }}'
   ansible.builtin.file:
-    path: '~{{ user.username }}/{{ visual_studio_code_config_path }}'
+    path: '~{{ user.username }}/.cursor'
     state: directory
     mode: 'u=rwx,go=rx'
   with_items: '{{ users }}'
@@ -17,7 +17,7 @@
   become: true
   become_user: '{{ user.username }}'
   ansible.builtin.file:
-    path: '~{{ user.username }}/{{ visual_studio_code_config_path }}/User'
+    path: '~{{ user.username }}/.cursor/User'
     state: directory
     mode: 'u=rwx,go='
   with_items: '{{ users }}'
@@ -31,7 +31,7 @@
   become_user: '{{ user.username }}'
   ansible.builtin.template:
     src: settings.json.j2
-    dest: '~{{ user.username }}/{{ visual_studio_code_config_path }}/User/settings.json'
+    dest: '~{{ user.username }}/.cursor/User/settings.json'
     force: '{{ user.visual_studio_code_settings_overwrite | default(False) | bool }}'
     mode: 'u=rw,go='
   with_items: '{{ users }}'
@@ -48,7 +48,7 @@
   become_user: '{{ user.username }}'
   ansible.builtin.template:
     src: keybindings.json.j2
-    dest: '~{{ user.username }}/{{ visual_studio_code_config_path }}/User/keybindings.json'
+    dest: '~{{ user.username }}/.cursor/User/keybindings.json'
     force: '{{ user.visual_studio_code_keybindings_overwrite | default(False) | bool }}'
     mode: 'u=rw,go='
   with_items: '{{ users }}'
